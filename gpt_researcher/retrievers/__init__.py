@@ -15,9 +15,11 @@ from .mcp import MCPRetriever
 from .bocha.bocha import BoChaSearch
 from .xquik.xquik import XquikSearch
 from .openalex.openalex import OpenAlexSearch
+from .parallel.parallel import ParallelSearch
 
 __all__ = [
     "TavilySearch",
+    "ParallelSearch",
     "CustomRetriever",
     "Duckduckgo",
     "SearchApiSearch",

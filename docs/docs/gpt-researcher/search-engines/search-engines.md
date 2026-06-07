@@ -34,6 +34,7 @@ Thanks to our community, we have integrated the following web search engines:
 - [Arxiv](https://info.arxiv.org/help/api/index.html) - Env: `RETRIEVER=arxiv`
 - [Exa](https://docs.exa.ai/reference/getting-started) - Env: `RETRIEVER=exa`
 - [PubMedCentral](https://www.ncbi.nlm.nih.gov/home/develop/api/) - Env: `RETRIEVER=pubmed_central`
+- [Parallel](https://docs.parallel.ai/api-reference/search/search) - Env: `RETRIEVER=parallel` - [Setup Guide](#parallel)
 
 ## Custom Retrievers
 
@@ -94,5 +95,22 @@ SERPER_LANGUAGE=en                  # Language code (en, ko, ja, etc.)
 SERPER_TIME_RANGE=qdr:w            # Time filter (qdr:h, qdr:d, qdr:w, qdr:m, qdr:y)
 SERPER_EXCLUDE_SITES=youtube.com   # Exclude sites (comma-separated)
 ```
+
+### Parallel
+
+To use [Parallel Search](https://docs.parallel.ai/api-reference/search/search) as your search engine:
+
+1. Get your API key from the [Parallel platform](https://platform.parallel.ai/).
+2. Set the required environment variables:
+
+```bash
+RETRIEVER=parallel
+PARALLEL_API_KEY=your_api_key_here
+```
+
+Parallel Search accepts an `objective` (the original research question) alongside the
+generated `search_queries`, and returns LLM-optimized excerpts per result. The retriever
+uses `mode="basic"` by default for lower latency — GPT Researcher fires many sub-queries
+per run, so this is the sensible default.
 
 Missing a retriever? Feel free to contribute to this project by submitting issues or pull requests on our [GitHub](https://github.com/assafelovic/gpt-researcher) page.

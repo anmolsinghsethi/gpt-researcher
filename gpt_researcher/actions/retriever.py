@@ -24,6 +24,7 @@ def get_retriever(retriever: str):
         - bing: Bing search
         - arxiv: arXiv academic search
         - tavily: Tavily search API
+        - parallel: Parallel Search API
         - exa: Exa search
         - semantic_scholar: Semantic Scholar academic search
         - pubmed_central: PubMed Central medical literature
@@ -73,6 +74,10 @@ def get_retriever(retriever: str):
             from gpt_researcher.retrievers import TavilySearch
 
             return TavilySearch
+        case "parallel":
+            from gpt_researcher.retrievers import ParallelSearch
+
+            return ParallelSearch
         case "exa":
             from gpt_researcher.retrievers import ExaSearch
 
